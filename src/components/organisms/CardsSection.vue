@@ -20,13 +20,12 @@
     <Card class="card" title="Your Cart" imgUrl="/src/assets/icons/cart.svg">
       <div class="info-card">
         <div class="setcion-infos">
-             <div class="icon" v-for="item in store.cart" :key="item">
+          <div class="icon" v-for="item in store.cart" :key="item">
             <figure>
               <img src="../../assets/icons/pinia.svg" alt="pinia" />
             </figure>
           </div>
         </div>
-
 
         <div class="footer-card">
           <div class="footer-card f-market">
@@ -39,7 +38,19 @@
 
     <Card class="card" title="Checkout" imgUrl="/src/assets/icons/money.svg">
       <div class="info-card">
-        <div class="setcion-infos"></div>
+        <div class="setcion-infos checkout-sec">
+          <div class="icon">
+            <figure>
+              <img src="../../assets/icons/pinia.svg" alt="pinia" />
+              <span class="amount-in-cart">x{{store.cart}}</span>
+            </figure>
+          </div>
+          <div class="total">
+              <span>
+                  Total: R$ {{store.cart * store.price}}
+              </span>
+          </div>
+        </div>
 
         <div class="footer-card">
           <div class="footer-card f-market checkout">
@@ -60,13 +71,12 @@ const store = shopStore();
 const amountToCart = ref(0);
 const valueRemove = ref(0);
 
-const removeFromCard = () =>{
-    store.removeFromCard(valueRemove.value)
-}
-const addToCart = () =>{
-store.addToCart(amountToCart.value)
-}
-
+const removeFromCard = () => {
+  store.removeFromCard(valueRemove.value);
+};
+const addToCart = () => {
+  store.addToCart(amountToCart.value);
+};
 </script>
 
 <style  scoped>
@@ -134,6 +144,14 @@ button {
 }
 .icon {
 }
+.icon .amount-in-cart{
+    border: 1px solid;
+    padding: .2rem .4rem;
+    font-size: .6em;
+    border-radius: 10px;
+    background: #74A2F7;
+    color: white;
+}
 .icon figure {
   width: 35px;
   height: 35px;
@@ -141,5 +159,14 @@ button {
 .icon figure img {
   width: 100%;
   height: 100%;
+}
+.checkout-sec{
+    flex-direction: column;
+    gap: 1rem;
+}
+.checkout-sec .icon figure{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 </style>

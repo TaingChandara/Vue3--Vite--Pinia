@@ -3,24 +3,29 @@
     <Card class="card" title="Market" imgUrl="/src/assets/icons/shop.svg">
       <div class="info-card">
         <div class="setcion-infos">
-            <div class="icon" v-for="item in store.market" :key="item">
-                <figure>
-                    <img src="../../assets/icons/pinia.svg" alt="pinia">
-                </figure>
-                
-            </div>
+          <div class="icon" v-for="item in store.market" :key="item">
+            <figure>
+              <img src="../../assets/icons/pinia.svg" alt="pinia" />
+            </figure>
+          </div>
         </div>
 
         <div class="footer-card f-market">
-          <input type="number" />
-          <button>Add to Cart</button>
+          <input type="number" v-model="amountToCart" />
+          <button @click="store.addToCart(amountToCart)">Add to Cart</button>
         </div>
       </div>
     </Card>
 
     <Card class="card" title="Your Cart" imgUrl="/src/assets/icons/cart.svg">
       <div class="info-card">
-       <div class="setcion-infos"></div>
+        <div class="setcion-infos">
+             <div class="icon" v-for="item in store.cart" :key="item">
+            <figure>
+              <img src="../../assets/icons/pinia.svg" alt="pinia" />
+            </figure>
+          </div>
+        </div>
 
         <div class="footer-card">
           <div class="footer-card f-market">
@@ -36,7 +41,7 @@
         <div class="setcion-infos"></div>
 
         <div class="footer-card">
-            <div class="footer-card f-market checkout">
+          <div class="footer-card f-market checkout">
             <button>Proced</button>
           </div>
         </div>
@@ -46,10 +51,13 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { shopStore } from "../../store/shopStore";
 import Card from "../molecules/Card.vue";
 
-const store = shopStore()
+const store = shopStore();
+const amountToCart = ref(0);
+
 </script>
 
 <style  scoped>
@@ -103,28 +111,26 @@ button {
   border: 1px solid #74a2f7;
   outline: none;
 }
-.checkout{
-    justify-content: flex-end;
+.checkout {
+  justify-content: flex-end;
 }
 
-
-.setcion-infos{
-    height: 90%;
-    background: rgb(250, 250, 250);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    
+.setcion-infos {
+  height: 90%;
+  background: rgb(250, 250, 250);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.icon{
+.icon {
 }
-.icon figure{
-    width: 35px;
-    height: 35px;
+.icon figure {
+  width: 35px;
+  height: 35px;
 }
-.icon figure img{
-    width: 100%;
-    height: 100%;
+.icon figure img {
+  width: 100%;
+  height: 100%;
 }
 </style>

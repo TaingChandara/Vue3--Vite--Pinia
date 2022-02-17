@@ -42,13 +42,11 @@
           <div class="icon">
             <figure>
               <img src="../../assets/icons/pinia.svg" alt="pinia" />
-              <span class="amount-in-cart">x{{store.cart}}</span>
+              <span class="amount-in-cart">x{{ store.cart }}</span>
             </figure>
           </div>
           <div class="total">
-              <span>
-                  Total: R$ {{store.cart * store.price}}
-              </span>
+            <span> Total: R$ {{ totalValue }} </span>
           </div>
         </div>
 
@@ -63,7 +61,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { shopStore } from "../../store/shopStore";
 import Card from "../molecules/Card.vue";
 
@@ -77,6 +75,7 @@ const removeFromCard = () => {
 const addToCart = () => {
   store.addToCart(amountToCart.value);
 };
+const totalValue = computed(() => store.cart * store.price);
 </script>
 
 <style  scoped>
@@ -142,15 +141,13 @@ button {
   justify-content: center;
   flex-wrap: wrap;
 }
-.icon {
-}
-.icon .amount-in-cart{
-    border: 1px solid;
-    padding: .2rem .4rem;
-    font-size: .6em;
-    border-radius: 10px;
-    background: #74A2F7;
-    color: white;
+.icon .amount-in-cart {
+  border: 1px solid;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.6em;
+  border-radius: 10px;
+  background: #74a2f7;
+  color: white;
 }
 .icon figure {
   width: 35px;
@@ -160,13 +157,13 @@ button {
   width: 100%;
   height: 100%;
 }
-.checkout-sec{
-    flex-direction: column;
-    gap: 1rem;
+.checkout-sec {
+  flex-direction: column;
+  gap: 1rem;
 }
-.checkout-sec .icon figure{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.checkout-sec .icon figure {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 </style>

@@ -30,11 +30,11 @@
     </div>
   </nav>
 </template>
+
 <script setup>
 import { shopStore } from "../../store/shopStore";
 const store = shopStore();
 </script>
-
 
 <style  scoped>
 nav {

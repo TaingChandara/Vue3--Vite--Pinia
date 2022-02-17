@@ -3,7 +3,7 @@
     <Card class="card" title="Market" imgUrl="/src/assets/icons/shop.svg">
       <div class="info-card">
         <div class="setcion-infos">
-          <div class="icon" v-for="item in store.market" :key="item">
+          <div class="icon" v-for="item in store.avaliable" :key="item">
             <figure>
               <img src="../../assets/icons/pinia.svg" alt="pinia" />
             </figure>
@@ -12,7 +12,7 @@
 
         <div class="footer-card f-market">
           <input type="number" v-model="amountToCart" />
-          <button @click="store.addToCart(amountToCart)">Add to Cart</button>
+          <button @click="addToCart">Add to Cart</button>
         </div>
       </div>
     </Card>
@@ -27,10 +27,11 @@
           </div>
         </div>
 
+
         <div class="footer-card">
           <div class="footer-card f-market">
-            <input type="number" />
-            <button>Remove</button>
+            <input type="number" v-model="valueRemove" />
+            <button @click="removeFromCard">Remove</button>
           </div>
         </div>
       </div>
@@ -57,6 +58,14 @@ import Card from "../molecules/Card.vue";
 
 const store = shopStore();
 const amountToCart = ref(0);
+const valueRemove = ref(0);
+
+const removeFromCard = () =>{
+    store.removeFromCard(valueRemove.value)
+}
+const addToCart = () =>{
+store.addToCart(amountToCart.value)
+}
 
 </script>
 

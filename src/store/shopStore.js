@@ -7,26 +7,44 @@ export const shopStore = defineStore('market', {
             cart: 0
         }
     },
-    getters:{
-        avaliable(state){
+    getters: {
+        avaliable(state) {
             return state.market - state.cart
         }
     },
-    actions:{
-        addToCart(item){
-            this.cart += item
-            
-        },
-        removeFromCard(item){
-            if(item > this.cart){
-                this.cart = 0
-            }else{
-             this.cart -= item   
+    actions: {
+        addToCart(valueToAdd) {
+            if (this.market > 0) {
+                if (valueToAdd > this.avaliable) {
+                    this.cart = this.market
+
+                } else {
+                    this.cart += valueToAdd
+                    this.market - valueToAdd
+                }
             }
+
+
+        },
+        removeFromCard(item) {
+            console.log('clicado em remover store')
+            if (item && this.cart > 0) {
+                if (item > this.cart) {
+
+                    this.cart = 0
+                    this.market += this.cart
+                } else {
+
+                    this.cart -= item
+                    this.market + item
+                }
+
+            }
+
         }
     }
 })
 
-if(import.meta.hot){
+if (import.meta.hot) {
     import.meta.hot.accept(acceptHMRUpdate(shopStore, import.meta.hot))
 }

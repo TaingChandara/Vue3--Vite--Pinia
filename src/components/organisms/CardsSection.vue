@@ -2,7 +2,14 @@
   <div class="cards-section">
     <Card class="card" title="Market" imgUrl="/src/assets/icons/shop.svg">
       <div class="info-card">
-        <span>oi</span>
+        <div class="setcion-infos">
+            <div class="icon" v-for="item in store.market" :key="item">
+                <figure>
+                    <img src="../../assets/icons/pinia.svg" alt="pinia">
+                </figure>
+                
+            </div>
+        </div>
 
         <div class="footer-card f-market">
           <input type="number" />
@@ -13,7 +20,7 @@
 
     <Card class="card" title="Your Cart" imgUrl="/src/assets/icons/cart.svg">
       <div class="info-card">
-        <span>oi</span>
+       <div class="setcion-infos"></div>
 
         <div class="footer-card">
           <div class="footer-card f-market">
@@ -26,7 +33,7 @@
 
     <Card class="card" title="Checkout" imgUrl="/src/assets/icons/money.svg">
       <div class="info-card">
-        <span>oi</span>
+        <div class="setcion-infos"></div>
 
         <div class="footer-card">
             <div class="footer-card f-market checkout">
@@ -39,7 +46,10 @@
 </template>
 
 <script setup>
+import { shopStore } from "../../store/shopStore";
 import Card from "../molecules/Card.vue";
+
+const store = shopStore()
 </script>
 
 <style  scoped>
@@ -95,5 +105,26 @@ button {
 }
 .checkout{
     justify-content: flex-end;
+}
+
+
+.setcion-infos{
+    height: 90%;
+    background: rgb(250, 250, 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.icon{
+}
+.icon figure{
+    width: 35px;
+    height: 35px;
+}
+.icon figure img{
+    width: 100%;
+    height: 100%;
 }
 </style>

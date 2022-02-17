@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+
 import NavBar from "../organisms/NavBar.vue";
 import CardsSection from "../organisms/CardsSection.vue";
 </script>
@@ -25,14 +26,14 @@ import CardsSection from "../organisms/CardsSection.vue";
   gap: 1rem;
 }
 header {
-     margin-top: 2rem;
+  margin-top: 2rem;
   width: 100%;
   height: 55px;
   border-radius: 15px;
   -webkit-box-shadow: 1px 12px 12px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 1px 12px 12px 0px rgba(0, 0, 0, 0.12);
 }
-.card-section{
-    margin-top: 2rem;
+.card-section {
+  margin-top: 2rem;
 }
 </style>

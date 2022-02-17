@@ -5,7 +5,7 @@ export const shopStore = defineStore('market', {
         return {
             market: 24,
             cart: 0,
-            price: 20
+            price: 24.7
         }
     },
     getters: {
@@ -24,11 +24,8 @@ export const shopStore = defineStore('market', {
                     this.market - valueToAdd
                 }
             }
-
-
         },
         removeFromCard(item) {
-            console.log('clicado em remover store')
             if (item && this.cart > 0) {
                 if (item > this.cart) {
 
@@ -39,9 +36,7 @@ export const shopStore = defineStore('market', {
                     this.cart -= item
                     this.market + item
                 }
-
             }
-
         }
     }
 })

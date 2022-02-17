@@ -1,54 +1,59 @@
 <template>
-    <div class="card">
-        <div class="header-card">
-            <figure>
-                <img :src="imgUrl" alt="">
-            </figure>
-            <div class="title-card">
-                <span>
-                    {{title}}
-                </span>
-            </div>
-        </div>
+  <div class="card">
+    <div class="header-card">
+      <figure>
+        <img :src="imgUrl" alt="" />
+      </figure>
+      <div class="title-card">
+        <span>
+          {{ title }}
+        </span>
+      </div>
     </div>
+    <div class="card-body">
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script setup>
+
 const props = defineProps({
-    title:{type: String, default: 'Sem titulo'},
-    imgUrl: {type: String, default: ''}
-})
- 
+  title: { type: String, default: "Sem titulo" },
+  imgUrl: { type: String },
+});
 </script>
 
 <style scoped>
-.card{
-    border-radius: 10px;
+.card {
+  border-radius: 10px;
 }
-.header-card{
-    padding: .5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.header-card {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.header-card .title-card span{
-    font-weight: 500;
+.header-card .title-card span {
+  font-weight: 500;
 }
-figure{
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-      -webkit-box-shadow: 1px 12px 12px 0px rgba(0, 0, 0, 0.12);
+figure {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 1px 12px 12px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 1px 12px 12px 0px rgba(0, 0, 0, 0.12);
   border-radius: 50%;
-  padding: .5rem;
+  padding: 0.5rem;
 }
-figure img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
+.card-body {
+  height: 85%;
+}
 </style>

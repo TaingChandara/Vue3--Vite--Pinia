@@ -3,9 +3,10 @@ import { defineStore, acceptHMRUpdate } from 'pinia'
 export const shopStore = defineStore('market', {
     state: () => {
         return {
-            market: 24,
+            market: 30,
             cart: 0,
-            price: 24.7
+            price: 1.25,
+            pricekhr: 5000
         }
     },
     getters: {

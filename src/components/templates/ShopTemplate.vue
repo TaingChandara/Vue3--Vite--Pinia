@@ -14,7 +14,7 @@ import NavBar from "../organisms/NavBar.vue";
 import CardsSection from "../organisms/CardsSection.vue";
 </script>
 
-<style  scoped>
+<style scoped>
 .shop-template {
   width: 100%;
   height: 100vh;

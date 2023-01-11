@@ -46,7 +46,8 @@
             </figure>
           </div>
           <div class="total">
-            <span> Total: R$ {{ totalValue }} </span>
+            <span> Total: $ {{ totalValue }} </span>
+            <span> Total : KHR {{ totalkhValue  }}</span>
           </div>
         </div>
 
@@ -75,7 +76,13 @@ const removeFromCard = () => {
 const addToCart = () => {
   store.addToCart(amountToCart.value);
 };
-const totalValue = computed(() => store.cart * store.price);
+const totalValue = computed(() => store.cart * store.price);{
+};
+
+const totalkhValue = computed(() => store.cart * store.pricekhr);
+
+
+
 </script>
 
 <style  scoped>

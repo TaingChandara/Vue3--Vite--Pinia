@@ -6,7 +6,7 @@ export const shopStore = defineStore('market', {
             market: 30,
             cart: 0,
             price: 1.25,
-            pricekhr: 5000
+            pricekhr: 5.2004
         }
     },
     getters: {
